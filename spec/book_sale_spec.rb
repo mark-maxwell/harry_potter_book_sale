@@ -69,7 +69,7 @@ describe "book sale" do
 			# remaining set of 3
 			a_shopping_basket = ShoppingBasket.new([@a_book, @another_book, @another_book2, @another_book3, 
 				@another_book4, @a_book, @another_book, @another_book2])
-			expect(a_shopping_basket.checkout).to eq(51.60)
+			expect(a_shopping_basket.checkout).to eq(51.20)
 		end
 
 	end
