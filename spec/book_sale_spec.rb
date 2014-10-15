@@ -41,6 +41,9 @@ describe "book sale" do
 		it "can exclude duplicates being included in discounts" do
 			a_shopping_basket = ShoppingBasket.new([@a_book, @another_book, @a_book])
 			expect(a_shopping_basket.checkout).to eq(23.20)
+
+			a_shopping_basket2 = ShoppingBasket.new([@a_book, @another_book, @another_book, @another_book2])
+			expect(a_shopping_basket2.checkout).to eq(29.6)
 		end
 
 		it "can apply discounts of 5%, 10%, 20% and 25% for 2, 3, 4 or 5 unique books purchased respectively" do
@@ -59,6 +62,14 @@ describe "book sale" do
 			# apply 25% discount for 5 unique books purchased
 			a_shopping_basket5 = ShoppingBasket.new([@a_book, @another_book, @another_book2, @another_book3, @another_book4])
 			expect(a_shopping_basket5.checkout).to eq(30)
+		end
+
+		it "can apply multiple discounts" do
+			# 2x book1, 2x book2, 2x book3, 1x book4, 1x book5 has a discount for the set of 5 and a discount for
+			# remaining set of 3
+			a_shopping_basket = ShoppingBasket.new([@a_book, @another_book, @another_book2, @another_book3, 
+				@another_book4, @a_book, @another_book, @another_book2])
+			expect(a_shopping_basket.checkout).to eq(51.60)
 		end
 
 	end

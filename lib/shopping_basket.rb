@@ -29,17 +29,10 @@ class ShoppingBasket
 	end
 
 	def discount_set(num)
-		if num == 1
-			@total += 8.00
-		elsif num == 2
-			@total += (16 * 0.95)
-		elsif num == 3
-			@total += (24 * 0.90)
-		elsif num == 4 
-			@total += (32 * 0.80)
-		else
-			@total += (40 * 0.75)
-				
-		end
+		@total += 8.00 if num == 1
+		@total += (16 * 0.95) if num == 2
+		@total += (24 * 0.90) if num == 3
+		@total += (32 * 0.80) if num == 4
+		@total += (40 * 0.75) if num == 5
 	end
 end
