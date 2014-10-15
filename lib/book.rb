@@ -1,8 +1,9 @@
 class Book
-	attr_accessor :title, :price
+	attr_accessor :title, :price, :id
 	
-	def initialize(title, price)
+	def initialize(title, price, id)
 		@title = title
 		@price = price
+		@id = id
 	end
 end
