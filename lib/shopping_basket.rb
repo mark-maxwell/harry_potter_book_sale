@@ -7,16 +7,24 @@ class ShoppingBasket
 	def checkout
 		count = 0
 		discounted = []
+		puts "books array before loop: " + @books.to_s
 		@books.uniq{ |u_book| u_book.id }.each do |book|
 			@total += book.price
 			count += 1
 			puts "total is: " + @total.to_s
 			puts "count is: " + count.to_s
+			@books.delete_at(@books.index(book))
+			puts "books array after: " + @books.to_s
 		end
-		if count == 1
+
+		if !@books.empty?
+			checkout
+		else
+			if count == 1
 			@total
-		elsif count == 2
+			elsif count == 2
 			@total = @total * 0.95
+			end
 		end
 	end
 

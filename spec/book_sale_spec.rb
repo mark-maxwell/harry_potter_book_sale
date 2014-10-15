@@ -31,4 +31,9 @@ describe "shopping basket" do
 		expect( a_shopping_basket.checkout).to eq(15.20)
 	end
 
+	it "can apply no discount if books are the same" do
+		a_book = Book.new("Philosopher's Stone", 8.00, 1)
+		a_shopping_basket = ShoppingBasket.new([a_book, a_book])
+		expect( a_shopping_basket.checkout).to eq(16.00)
+	end
 end
